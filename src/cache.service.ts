@@ -94,11 +94,9 @@ export class CacheService {
    */
   private watchNetworkInit() {
     this.networkStatus = navigator.onLine;
-    console.info('Main', this.networkStatus);
     const connect = this.network.onConnect().map(() => true), disconnect = this.network.onDisconnect().map(() => false);
     this.networkStatusChanges = Observable.merge(connect, disconnect).share();
     this.networkStatusChanges.subscribe(status => {
-      console.info(status);
       this.networkStatus = status;
     });
   }
