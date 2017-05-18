@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CacheService } from './cache.service';
 import { IonicStorageModule } from '@ionic/storage';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ export class CacheModule {
     return {
       ngModule: CacheModule,
       providers: [
-        CacheService
+        CacheService,
+        Network
       ]
     };
   }
